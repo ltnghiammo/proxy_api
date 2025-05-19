@@ -1,10 +1,11 @@
 from flask import Flask, request, jsonify
 import requests
 import os
+from flask_cors import CORS     # <-- Thêm dòng này
 
 app = Flask(__name__)
+CORS(app)                      # <-- Thêm dòng này
 
-# Example AbuseIPDB endpoint
 @app.route('/abuseipdb')
 def abuseipdb():
     ip = request.args.get('ip')
@@ -14,7 +15,6 @@ def abuseipdb():
     resp = requests.get(url, headers=headers, timeout=5)
     return jsonify(resp.json())
 
-# Example MaxMind endpoint
 @app.route('/maxmind')
 def maxmind():
     ip = request.args.get('ip')
