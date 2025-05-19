@@ -4,14 +4,16 @@ import httpx
 import asyncio
 from fastapi.middleware.cors import CORSMiddleware
 
-  app.add_middleware(
-      CORSMiddleware,
-      allow_origins=["*"],
-      allow_credentials=True,
-      allow_methods=["*"],
-      allow_headers=["*"],
-  )
 app = FastAPI()
+
+# Thêm CORS middleware sau khi khởi tạo app
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Thay các API_KEY bên dưới bằng key thật của bạn
 ABUSEIPDB_KEY = "e2997ad9fbbd3446bec838c5d282ce89260314ba9d5176126446fb8ee9703746c4479c7ea50f5ae3"
