@@ -2,7 +2,15 @@ from fastapi import FastAPI, Query
 from fastapi.responses import JSONResponse
 import httpx
 import asyncio
+from fastapi.middleware.cors import CORSMiddleware
 
+  app.add_middleware(
+      CORSMiddleware,
+      allow_origins=["*"],
+      allow_credentials=True,
+      allow_methods=["*"],
+      allow_headers=["*"],
+  )
 app = FastAPI()
 
 # Thay các API_KEY bên dưới bằng key thật của bạn
